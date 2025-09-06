@@ -1,208 +1,760 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TechPro Solutions - Professional Technology Services</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-  <script type="text/javascript" src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
-  <script type="text/javascript">
-    (function(){ emailjs.init("fsg.hadez"); })();
-  </script>
-  <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; }
-    .smooth-scroll { scroll-behavior: smooth; }
-    header { transition: all 0.3s; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechPro Solutions - Professional Technology Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #2563eb;
+            --primary-green: #059669;
+            --dark-blue: #1e40af;
+            --light-blue: #dbeafe;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 100%);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .project-filter button.active {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+        
+        .nav-scrolled {
+            background-color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .skill-bar {
+            transition: width 2s ease-in-out;
+        }
+    </style>
 </head>
-<body class="smooth-scroll">
-
-  <!-- Header -->
-  <header id="header" class="fixed top-0 w-full z-50 bg-transparent">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
-      <div class="flex items-center space-x-2">
-        <div class="flex items-center space-x-1">
-          <i data-lucide="code" class="w-6 h-6 text-white"></i>
-          <i data-lucide="wrench" class="w-5 h-5 text-white"></i>
-          <i data-lucide="building-2" class="w-5 h-5 text-white"></i>
+<body class="bg-white text-gray-800">
+    <!-- Header/Navigation -->
+    <header id="header" class="fixed w-full z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <div class="flex items-center space-x-1">
+                        <i data-lucide="code" class="w-6 h-6 text-blue-600"></i>
+                        <i data-lucide="wrench" class="w-5 h-5 text-green-600"></i>
+                        <i data-lucide="building-2" class="w-5 h-5 text-blue-600"></i>
+                    </div>
+                    <span class="text-xl font-bold text-white">TechPro Solutions</span>
+                </div>
+                
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="font-medium text-white hover:text-blue-200 transition-colors duration-200">Home</a>
+                    <a href="#services" class="font-medium text-white hover:text-blue-200 transition-colors duration-200">Services</a>
+                    <a href="#portfolio" class="font-medium text-white hover:text-blue-200 transition-colors duration-200">Portfolio</a>
+                    <a href="#about" class="font-medium text-white hover:text-blue-200 transition-colors duration-200">About</a>
+                    <a href="#contact" class="font-medium text-white hover:text-blue-200 transition-colors duration-200">Contact</a>
+                </nav>
+                
+                <button id="mobile-menu-btn" class="md:hidden text-white">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+            
+            <div id="mobile-menu" class="hidden md:hidden bg-white rounded-lg shadow-lg mt-2 py-4">
+                <a href="#home" class="block px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-200">Home</a>
+                <a href="#services" class="block px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-200">Services</a>
+                <a href="#portfolio" class="block px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-200">Portfolio</a>
+                <a href="#about" class="block px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-200">About</a>
+                <a href="#contact" class="block px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-200">Contact</a>
+            </div>
         </div>
-        <span class="text-xl font-bold text-white">TechPro Solutions</span>
-      </div>
-      <nav class="hidden md:flex space-x-8">
-        <a href="#home" class="text-white hover:text-blue-200 font-medium">Home</a>
-        <a href="#services" class="text-white hover:text-blue-200 font-medium">Services</a>
-        <a href="#portfolio" class="text-white hover:text-blue-200 font-medium">Portfolio</a>
-        <a href="#about" class="text-white hover:text-blue-200 font-medium">About</a>
-        <a href="#contact" class="text-white hover:text-blue-200 font-medium">Contact</a>
-      </nav>
-      <button id="menu-btn" class="md:hidden text-white">
-        <i data-lucide="menu" class="w-6 h-6"></i>
-      </button>
-    </div>
-    <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg rounded-lg mt-2 py-4">
-      <a href="#home" class="block px-4 py-2 text-gray-700 hover:text-blue-600">Home</a>
-      <a href="#services" class="block px-4 py-2 text-gray-700 hover:text-blue-600">Services</a>
-      <a href="#portfolio" class="block px-4 py-2 text-gray-700 hover:text-blue-600">Portfolio</a>
-      <a href="#about" class="block px-4 py-2 text-gray-700 hover:text-blue-600">About</a>
-      <a href="#contact" class="block px-4 py-2 text-gray-700 hover:text-blue-600">Contact</a>
-    </div>
-  </header>
+    </header>
 
-  <!-- Hero Section -->
-  <section id="home" class="relative min-h-screen flex items-center justify-center">
-    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.pexels.com/photos/574077/pexels-photo-574077.jpeg?auto=compress&cs=tinysrgb&w=1920'); background-blend-mode: overlay; background-color: rgba(0,0,0,0.6);"></div>
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center text-white">
-      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-        Complete Technology <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-400">Solutions Provider</span>
-      </h1>
-      <p class="text-lg sm:text-xl md:text-2xl mb-8 leading-relaxed max-w-3xl mx-auto">
-        From custom software development to complete office setups, we provide comprehensive technology solutions for your business needs.
-      </p>
-      <a href="#contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-md transition">Get in Touch</a>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section id="services" class="py-20 bg-gray-100">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl sm:text-4xl font-bold mb-12">Services</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition">
-          <i data-lucide="monitor" class="w-10 h-10 mb-4 text-blue-600"></i>
-          <h3 class="text-xl font-semibold mb-2">Software Development</h3>
-          <p>Custom web and desktop applications tailored to your business.</p>
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center pt-16">
+        <div class="absolute inset-0 gradient-bg">
+            <div class="absolute inset-0 bg-[url('https://images.pexels.com/photos/574077/pexels-photo-574077.jpeg')] bg-cover bg-center mix-blend-overlay opacity-30"></div>
+            <div class="absolute inset-0 bg-black opacity-50"></div>
         </div>
-        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition">
-          <i data-lucide="shield" class="w-10 h-10 mb-4 text-green-600"></i>
-          <h3 class="text-xl font-semibold mb-2">IT Security</h3>
-          <p>Protect your infrastructure with reliable security solutions.</p>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-4xl">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                    Complete Technology
+                    <span class="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-400">Solutions Provider</span>
+                </h1>
+                
+                <p class="text-xl sm:text-2xl text-gray-200 mb-8 leading-relaxed">
+                    From custom software development to complete office setups, I provide comprehensive technology solutions for your business needs.
+                </p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+                    <div class="flex items-center space-x-2 text-white">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-green-400 flex-shrink-0"></i>
+                        <span class="text-sm sm:text-base">Custom Software Development</span>
+                    </div>
+                    <div class="flex items-center space-x-2 text-white">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-green-400 flex-shrink-0"></i>
+                        <span class="text-sm sm:text-base">Computer Repair & Maintenance</span>
+                    </div>
+                    <div class="flex items-center space-x-2 text-white">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-green-400 flex-shrink-0"></i>
+                        <span class="text-sm sm:text-base">Complete Office Setup</span>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contact" class="group bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center space-x-2 text-center">
+                        <span>Get Free Consultation</span>
+                        <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"></i>
+                    </a>
+                    <a href="#portfolio" class="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-lg font-semibold transition-all duration-300 text-center">
+                        View My Work
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition">
-          <i data-lucide="network" class="w-10 h-10 mb-4 text-purple-600"></i>
-          <h3 class="text-xl font-semibold mb-2">Networking</h3>
-          <p>Build robust office networks with professional setup and maintenance.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Comprehensive Technology Services</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">One-stop solution for all your technology needs. From software development to complete office setups.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-blue-50 border-2 border-blue-200 rounded-xl p-6 service-card transition-all duration-300">
+                    <i data-lucide="code" class="w-8 h-8 text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Custom Software Development</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">Full-stack web applications, mobile apps, and desktop software tailored to your business needs.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            React & Node.js
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Mobile Development
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Database Design
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            API Integration
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-green-50 border-2 border-green-200 rounded-xl p-6 service-card transition-all duration-300">
+                    <i data-lucide="monitor" class="w-8 h-8 text-green-600 mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Computer Repair & Support</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">Professional computer repair, maintenance, and technical support for individuals and businesses.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-green-600 rounded-full mr-3"></div>
+                            Hardware Repair
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-green-600 rounded-full mr-3"></div>
+                            Software Troubleshooting
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-green-600 rounded-full mr-3"></div>
+                            Data Recovery
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-green-600 rounded-full mr-3"></div>
+                            System Optimization
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-purple-50 border-2 border-purple-200 rounded-xl p-6 service-card transition-all duration-300">
+                    <i data-lucide="building-2" class="w-8 h-8 text-purple-600 mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Complete Office Setup</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">End-to-end office technology solutions including furniture, computers, and infrastructure.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-purple-600 rounded-full mr-3"></div>
+                            Office Furniture
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-purple-600 rounded-full mr-3"></div>
+                            Computer Systems
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-purple-600 rounded-full mr-3"></div>
+                            Network Setup
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-purple-600 rounded-full mr-3"></div>
+                            Equipment Procurement
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-red-50 border-2 border-red-200 rounded-xl p-6 service-card transition-all duration-300">
+                    <i data-lucide="shield" class="w-8 h-8 text-red-600 mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">CCTV & Security Systems</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">Professional security camera installation and monitoring systems for your property.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-red-600 rounded-full mr-3"></div>
+                            Camera Installation
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-red-600 rounded-full mr-3"></div>
+                            Remote Monitoring
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-red-600 rounded-full mr-3"></div>
+                            Security Consultation
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-red-600 rounded-full mr-3"></div>
+                            Maintenance
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="bg-indigo-50 border-2 border-indigo-200 rounded-xl p-6 service-card transition-all duration-300">
+                    <i data-lucide="network" class="w-8 h-8 text-indigo-600 mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Network Infrastructure</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">Design and implement robust network solutions for seamless connectivity.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-indigo-600 rounded-full mr-3"></div>
+                            WiFi Setup
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-indigo-600 rounded-full mr-3"></div>
+                            Cable Management
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-indigo-600 rounded-full mr-3"></div>
+                            Server Configuration
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-indigo-600 rounded-full mr-3"></div>
+                            Network Security
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="bg-teal-50 border-2 border-teal-200 rounded-xl p-6 service-card transition-all duration-300">
+                    <i data-lucide="smartphone" class="w-8 h-8 text-teal-600 mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Device Management</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">Comprehensive device procurement, setup, and ongoing management services.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-teal-600 rounded-full mr-3"></div>
+                            Device Sourcing
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-teal-600 rounded-full mr-3"></div>
+                            Configuration
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-teal-600 rounded-full mr-3"></div>
+                            Asset Management
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-teal-600 rounded-full mr-3"></div>
+                            Support
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Portfolio Section -->
-  <section id="portfolio" class="py-20 text-center">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl sm:text-4xl font-bold mb-12">Portfolio</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition">
-          <img src="https://www.cxtoday.com/wp-content/uploads/2022/01/CRM-101-Customer-Relationship-Management.jpeg" alt="Project 1" class="rounded mb-4">
-          <h3 class="text-xl font-semibold mb-2">Customer Relationship Management Software</h3>
-          <p>Custom software for client operations management.</p>
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Recent Projects & Solutions</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Explore some of my recent work across software development, office setups, and technical solutions.</p>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-4 mb-12 project-filter">
+                <button class="px-6 py-3 rounded-full font-medium transition-all duration-300 active bg-blue-600 text-white shadow-lg">All Projects</button>
+                <button class="px-6 py-3 rounded-full font-medium transition-all duration-300 bg-gray-200 text-gray-700 hover:bg-gray-300">Software</button>
+                <button class="px-6 py-3 rounded-full font-medium transition-all duration-300 bg-gray-200 text-gray-700 hover:bg-gray-300">Office Setup</button>
+                <button class="px-6 py-3 rounded-full font-medium transition-all duration-300 bg-gray-200 text-gray-700 hover:bg-gray-300">Security</button>
+                <button class="px-6 py-3 rounded-full font-medium transition-all duration-300 bg-gray-200 text-gray-700 hover:bg-gray-300">Networking</button>
+                <button class="px-6 py-3 rounded-full font-medium transition-all duration-300 bg-gray-200 text-gray-700 hover:bg-gray-300">Repair</button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl transform hover:-translate-y-2 group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800" alt="E-Commerce Platform" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="flex space-x-2">
+                                <a href="#" class="bg-white bg-opacity-90 hover:bg-opacity-100 p-2 rounded-full transition-all duration-200">
+                                    <i data-lucide="external-link" class="w-4 h-4 text-gray-700"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">E-Commerce Platform</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">Full-stack e-commerce solution with React, Node.js, and PostgreSQL</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">React</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">Node.js</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">PostgreSQL</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">Stripe</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl transform hover:-translate-y-2 group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.pexels.com/photos/1170412/pexels-photo-1170412.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Corporate Office Setup" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="flex space-x-2">
+                                <a href="#" class="bg-white bg-opacity-90 hover:bg-opacity-100 p-2 rounded-full transition-all duration-200">
+                                    <i data-lucide="external-link" class="w-4 h-4 text-gray-700"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Corporate Office Setup</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">Complete 50-workstation office setup with networking and security systems</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">Network Design</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">CCTV Installation</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">Workstation Setup</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">Cable Management</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl transform hover:-translate-y-2 group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Security System Integration" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="flex space-x-2">
+                                <a href="#" class="bg-white bg-opacity-90 hover:bg-opacity-100 p-2 rounded-full transition-all duration-200">
+                                    <i data-lucide="external-link" class="w-4 h-4 text-gray-700"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Security System Integration</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">Advanced CCTV and access control system for commercial building</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">IP Cameras</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">NVR Setup</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">Remote Monitoring</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">Access Control</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition">
-          <img src="https://i.pinimg.com/originals/38/ba/35/38ba350a92f19c34e08268a2ef007f04.png" alt="Project 2" class="rounded mb-4">
-          <h3 class="text-xl font-semibold mb-2">Complete Office Setup</h3>
-          <p>Office complete setup for a small to mid-sized business.</p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">About TechPro Solutions</h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">I'm a dedicated technology professional with over 5 years of experience providing comprehensive solutions for businesses of all sizes. My expertise spans from custom software development to complete office infrastructure setup.</p>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">Whether you need a custom web application, computer repair services, or a complete office setup with CCTV security systems, I deliver quality solutions that drive your business forward.</p>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+                            <i data-lucide="award" class="w-6 h-6 text-blue-600 mx-auto mb-2"></i>
+                            <div class="text-2xl font-bold text-gray-900">50+</div>
+                            <div class="text-sm text-gray-600">Projects Completed</div>
+                        </div>
+                        <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+                            <i data-lucide="users" class="w-6 h-6 text-blue-600 mx-auto mb-2"></i>
+                            <div class="text-2xl font-bold text-gray-900">30+</div>
+                            <div class="text-sm text-gray-600">Happy Clients</div>
+                        </div>
+                        <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+                            <i data-lucide="clock" class="w-6 h-6 text-blue-600 mx-auto mb-2"></i>
+                            <div class="text-2xl font-bold text-gray-900">5+</div>
+                            <div class="text-sm text-gray-600">Years Experience</div>
+                        </div>
+                        <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+                            <i data-lucide="star" class="w-6 h-6 text-blue-600 mx-auto mb-2"></i>
+                            <div class="text-2xl font-bold text-gray-900">4.9</div>
+                            <div class="text-sm text-gray-600">Client Rating</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Technical Expertise</h3>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-gray-700 font-medium">JavaScript/TypeScript</span>
+                                <span class="text-gray-500 text-sm">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-blue-600 to-green-600 h-2 rounded-full skill-bar" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-gray-700 font-medium">React/Node.js</span>
+                                <span class="text-gray-500 text-sm">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-blue-600 to-green-600 h-2 rounded-full skill-bar" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-gray-700 font-medium">System Administration</span>
+                                <span class="text-gray-500 text-sm">88%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-blue-600 to-green-600 h-2 rounded-full skill-bar" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-gray-700 font-medium">Network Configuration</span>
+                                <span class="text-gray-500 text-sm">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-blue-600 to-green-600 h-2 rounded-full skill-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-gray-700 font-medium">Hardware Repair</span>
+                                <span class="text-gray-500 text-sm">92%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-blue-600 to-green-600 h-2 rounded-full skill-bar" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-gray-700 font-medium">Project Management</span>
+                                <span class="text-gray-500 text-sm">87%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-blue-600 to-green-600 h-2 rounded-full skill-bar" style="width: 87%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Certifications</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li>• CompTIA A+ Certified</li>
+                            <li>• Cisco Certified Network Associate (CCNA)</li>
+                            <li>• AWS Cloud Practitioner</li>
+                            <li>• Google Cloud Professional</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition">
-          <img src="https://cdn.dribbble.com/userupload/16505524/file/original-3a21235b5b55bb4dca2fa837adaf8c4b.jpg?resize=752x&vertical=center" alt="Project 3" class="rounded mb-4">
-          <h3 class="text-xl font-semibold mb-2">Personalized Systems</h3>
-          <p>Web application development or localhost based systems.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="py-20 bg-gray-100">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl sm:text-4xl font-bold mb-6">About</h2>
-      <p class="max-w-3xl mx-auto text-lg sm:text-xl leading-relaxed">
-        TechPro Solutions provides professional technology services tailored to businesses of all sizes. From custom software development to full IT support, we deliver solutions that drive growth and efficiency.
-      </p>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-20 text-center">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl sm:text-4xl font-bold mb-6">Contact</h2>
-      <p class="max-w-3xl mx-auto mb-6">Reach out via email or phone to get started.</p>
-      <p class="mb-6">Email: fsg.hadez@gmail.com | Phone: 0968 225 0969</p>
-      <form id="contact-form" class="max-w-xl mx-auto flex flex-col gap-4">
-        <input type="text" name="user_name" placeholder="Your Name" class="px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600" required>
-        <input type="email" name="user_email" placeholder="Your Email" class="px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600" required>
-        <textarea name="message" placeholder="Your Message" class="px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600" required></textarea>
-        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-md transition">Send</button>
-      </form>
-      <p id="form-status" class="mt-4 text-sm text-gray-700"></p>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-white py-6 text-center">
-    © <span id="year"></span> TechPro Solutions
-  </footer>
-
-  <script>
-    // Lucide icons
-    lucide.createIcons();
-
-    // Mobile menu toggle
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-
-    // Header scroll effect
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
-      if(window.scrollY > 50) {
-        header.classList.add('bg-white','shadow-lg');
-        header.classList.remove('bg-transparent');
-      } else {
-        header.classList.remove('bg-white','shadow-lg');
-        header.classList.add('bg-transparent');
-      }
-    });
-
-    // Footer year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    </section>
 
     <!-- Contact Section -->
-<section id="contact" class="py-20 text-center">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="text-3xl sm:text-4xl font-bold mb-6">Contact</h2>
-    <p class="max-w-3xl mx-auto mb-6">Reach out via email or phone to get started.</p>
-    <p class="mb-6">Email: fsg.hadez@gmail.com | Phone: 0968 225 0969</p>
-    <form id="contact-form" class="max-w-xl mx-auto flex flex-col sm:flex-row gap-4">
-      <input type="text" name="from_name" placeholder="Your Name" class="flex-1 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600" required>
-      <input type="email" name="reply_to" placeholder="Your Email" class="flex-1 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600" required>
-      <textarea name="message" placeholder="Your Message" class="flex-1 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600" required></textarea>
-      <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-md transition">Send</button>
-    </form>
-    <p id="form-status" class="mt-4 text-green-600 font-semibold"></p>
-  </div>
-</section>
+    <section id="contact" class="py-20 gradient-bg">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Get In Touch</h2>
+                <p class="text-xl text-blue-200 max-w-2xl mx-auto">Ready to start your project? Contact me today for a free consultation and quote.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="space-y-8">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-xl p-6 border border-white border-opacity-20">
+                            <i data-lucide="phone" class="w-6 h-6 text-blue-300 mb-3"></i>
+                            <h3 class="text-white font-semibold mb-1">Phone</h3>
+                            <p class="text-blue-200 font-medium mb-1">+1 (555) 123-4567</p>
+                            <p class="text-blue-300 text-sm">Call for immediate support</p>
+                        </div>
+                        
+                        <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-xl p-6 border border-white border-opacity-20">
+                            <i data-lucide="mail" class="w-6 h-6 text-blue-300 mb-3"></i>
+                            <h3 class="text-white font-semibold mb-1">Email</h3>
+                            <p class="text-blue-200 font-medium mb-1">contact@techprosolutions.com</p>
+                            <p class="text-blue-300 text-sm">Email for project inquiries</p>
+                        </div>
+                        
+                        <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-xl p-6 border border-white border-opacity-20">
+                            <i data-lucide="map-pin" class="w-6 h-6 text-blue-300 mb-3"></i>
+                            <h3 class="text-white font-semibold mb-1">Location</h3>
+                            <p class="text-blue-200 font-medium mb-1">San Francisco Bay Area</p>
+                            <p class="text-blue-300 text-sm">Serving California & Remote</p>
+                        </div>
+                        
+                        <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-xl p-6 border border-white border-opacity-20">
+                            <i data-lucide="clock" class="w-6 h-6 text-blue-300 mb-3"></i>
+                            <h3 class="text-white font-semibold mb-1">Hours</h3>
+                            <p class="text-blue-200 font-medium mb-1">Mon - Fri: 8AM - 6PM</p>
+                            <p class="text-blue-300 text-sm">Emergency support available</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-xl p-6 border border-white border-opacity-20">
+                        <h3 class="text-white font-semibold mb-4 text-lg">Service Areas</h3>
+                        <div class="space-y-3 text-blue-200">
+                            <p>• Custom Software Development & Web Applications</p>
+                            <p>• Computer Repair, Maintenance & Technical Support</p>
+                            <p>• Complete Office Setup & Infrastructure</p>
+                            <p>• CCTV Security Systems & Installation</p>
+                            <p>• Network Design & Implementation</p>
+                            <p>• IT Consulting & Project Management</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-xl p-8 border border-white border-opacity-20">
+                    <h3 class="text-2xl font-bold text-white mb-6">Send a Message</h3>
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <input type="text" placeholder="Your Name" class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                            <input type="email" placeholder="Your Email" class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                        </div>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <input type="tel" placeholder="Phone Number" class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                            <select class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-400">
+                                <option value="" class="text-gray-700">Select Service</option>
+                                <option value="software" class="text-gray-700">Software Development</option>
+                                <option value="repair" class="text-gray-700">Computer Repair</option>
+                                <option value="office" class="text-gray-700">Office Setup</option>
+                                <option value="security" class="text-gray-700">Security Systems</option>
+                                <option value="consulting" class="text-gray-700">IT Consulting</option>
+                            </select>
+                        </div>
+                        
+                        <textarea rows="5" placeholder="Tell me about your project or needs..." class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none"></textarea>
+                        
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center space-x-2 group">
+                            <span>Send Message</span>
+                            <i data-lucide="send" class="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-  // Initialize EmailJS
-  emailjs.init('9PUZg50CbJv0VlLZv');
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-2">
+                        <div class="flex items-center space-x-1">
+                            <i data-lucide="code" class="w-6 h-6 text-blue-400"></i>
+                            <i data-lucide="wrench" class="w-5 h-5 text-green-400"></i>
+                            <i data-lucide="building-2" class="w-5 h-5 text-blue-400"></i>
+                        </div>
+                        <span class="text-xl font-bold">TechPro Solutions</span>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed">Your trusted partner for comprehensive technology solutions. From software development to complete office setups.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-200">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-200">
+                            <i data-lucide="github" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-200">
+                            <i data-lucide="twitter" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">Software Development</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">Computer Repair</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">Office Setup</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">CCTV Systems</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">Network Solutions</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">IT Consulting</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#home" class="hover:text-white transition-colors duration-200">Home</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors duration-200">Services</a></li>
+                        <li><a href="#portfolio" class="hover:text-white transition-colors duration-200">Portfolio</a></li>
+                        <li><a href="#about" class="hover:text-white transition-colors duration-200">About</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors duration-200">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-3 text-gray-400">
+                            <i data-lucide="phone" class="w-5 h-5 text-blue-400"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </div>
+                        <div class="flex items-center space-x-3 text-gray-400">
+                            <i data-lucide="mail" class="w-5 h-5 text-green-400"></i>
+                            <span>contact@techprosolutions.com</span>
+                        </div>
+                        <div class="flex items-start space-x-3 text-gray-400">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-blue-400 mt-1"></i>
+                            <div>
+                                <p>San Francisco Bay Area</p>
+                                <p class="text-sm">California, USA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2023 TechPro Solutions. All rights reserved.</p>
+                    <div class="flex space-x-6 text-sm text-gray-400">
+                        <a href="#" class="hover:text-white transition-colors duration-200">Privacy Policy</a>
+                        <a href="#" class="hover:text-white transition-colors duration-200">Terms of Service</a>
+                        <a href="#" class="hover:text-white transition-colors duration-200">Support</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-  const form = document.getElementById('contact-form');
-  const status = document.getElementById('form-status');
-
-  form.addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    emailjs.sendForm('service_j5qc1bj', 'template_69zu88n', this)
-      .then(() => {
-        status.textContent = "Message sent successfully!";
-        form.reset();
-      }, (err) => {
-        status.textContent = "Oops! Something went wrong. Please try again.";
-        console.error('EmailJS error:', err);
-      });
-  });
-</script>
-
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            
+            // Change icon based on menu state
+            const icon = this.querySelector('i');
+            if (menu.classList.contains('hidden')) {
+                icon.setAttribute('data-lucide', 'menu');
+            } else {
+                icon.setAttribute('data-lucide', 'x');
+            }
+            lucide.createIcons();
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('nav-scrolled');
+                header.classList.remove('bg-transparent');
+                // Change logo text color
+                document.querySelector('#header .text-white').classList.remove('text-white');
+                document.querySelector('#header .text-white').classList.add('text-gray-900');
+                // Change navigation links color
+                const navLinks = document.querySelectorAll('#header nav a');
+                navLinks.forEach(link => {
+                    link.classList.remove('text-white');
+                    link.classList.add('text-gray-700');
+                });
+            } else {
+                header.classList.remove('nav-scrolled');
+                header.classList.add('bg-transparent');
+                // Revert logo text color
+                document.querySelector('#header .text-gray-900').classList.remove('text-gray-900');
+                document.querySelector('#header .text-gray-900').classList.add('text-white');
+                // Revert navigation links color
+                const navLinks = document.querySelectorAll('#header nav a');
+                navLinks.forEach(link => {
+                    link.classList.remove('text-gray-700');
+                    link.classList.add('text-white');
+                });
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        const menuButtonIcon = document.querySelector('#mobile-menu-btn i');
+                        menuButtonIcon.setAttribute('data-lucide', 'menu');
+                        lucide.createIcons();
+                    }
+                }
+            });
+        });
+        
+        // Animate skill bars when they come into view
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-bar');
+            skillBars.forEach(bar => {
+                const rect = bar.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    bar.style.width = bar.style.width; // Trigger animation
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', animateSkillBars);
+        // Initial check on page load
+        animateSkillBars();
+    </script>
 </body>
 </html>
