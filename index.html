@@ -756,5 +756,20 @@
         // Initial check on page load
         animateSkillBars();
     </script>
+	
+	<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("9PUZg50CbJv0VlLZv");
+  })();
+
+  document.querySelector("form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    emailjs.sendForm("service_j5qc1bj", "template_69zu88n", this)
+      .then(() => alert("Message sent!"))
+      .catch(err => alert("Error: " + JSON.stringify(err)));
+  });
+</script>
+
 </body>
 </html>
