@@ -121,7 +121,7 @@
                         <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"></i>
                     </a>
                     <a href="#portfolio" class="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-lg font-semibold transition-all duration-300 text-center">
-                        View My Work
+                        View Our Work
                     </a>
                 </div>
             </div>
@@ -295,7 +295,7 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Recent Projects & Solutions</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Explore some of my recent work across software development, office setups, and technical solutions.</p>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Explore some of Our recent work across software development, office setups, and technical solutions.</p>
             </div>
             
             <div class="flex flex-wrap justify-center gap-4 mb-12 project-filter">
@@ -769,26 +769,36 @@
   document.getElementById("contact-form").addEventListener("submit", function(e) {
     e.preventDefault();
     
-    // Show loading state
-    const submitBtn = this.querySelector('button[type="submit"]');
+    const form = this;
+    const submitBtn = form.querySelector('button[type="submit"]');
     const originalText = submitBtn.innerHTML;
+    const messageBox = document.getElementById("form-message");
+    
+    // Reset message box
+    messageBox.className = "hidden mt-4 text-center text-sm";
+    messageBox.textContent = "";
+
+    // Show loading state
     submitBtn.innerHTML = 'Sending...';
     submitBtn.disabled = true;
     
-    emailjs.sendForm("service_j5qc1bj", "template_69zu88n", this)
+    emailjs.sendForm("service_j5qc1bj", "template_69zu88n", form)
       .then(() => {
-        alert("Message sent successfully!");
-        this.reset();
+        messageBox.textContent = "✅ Message sent successfully!";
+        messageBox.className = "mt-4 text-center text-sm text-green-400 font-medium";
+        form.reset();
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
       })
       .catch(err => {
-        alert("Error: " + JSON.stringify(err));
+        messageBox.textContent = "❌ Failed to send. Please try again later.";
+        messageBox.className = "mt-4 text-center text-sm text-red-400 font-medium";
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
       });
   });
 </script>
+
 
 </body>
 </html>
