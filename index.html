@@ -550,15 +550,18 @@
                 
                 <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-xl p-8 border border-white border-opacity-20">
                     <h3 class="text-2xl font-bold text-white mb-6">Send a Message</h3>
-                    <form class="space-y-6">
+                    <form id="contact-form" class="space-y-6">
+                        <input type="hidden" name="to_email" value="fsg.hadez@gmail.com">
+                        <input type="hidden" name="to_name" value="TechPro Solutions">
+                        
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <input type="text" placeholder="Your Name" class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400">
-                            <input type="email" placeholder="Your Email" class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                            <input type="text" name="from_name" placeholder="Your Name" class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+                            <input type="email" name="from_email" placeholder="Your Email" class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400" required>
                         </div>
                         
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <input type="tel" placeholder="Phone Number" class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400">
-                            <select class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-400">
+                            <input type="tel" name="phone_number" placeholder="Phone Number" class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                            <select name="service" class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-400">
                                 <option value="" class="text-gray-700">Select Service</option>
                                 <option value="software" class="text-gray-700">Software Development</option>
                                 <option value="repair" class="text-gray-700">Computer Repair</option>
@@ -568,7 +571,7 @@
                             </select>
                         </div>
                         
-                        <textarea rows="5" placeholder="Tell me about your project or needs..." class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none"></textarea>
+                        <textarea rows="5" name="message" placeholder="Tell me about your project or needs..." class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none" required></textarea>
                         
                         <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center space-x-2 group">
                             <span>Send Message</span>
@@ -763,14 +766,29 @@
     emailjs.init("9PUZg50CbJv0VlLZv");
   })();
 
-  document.querySelector("form").addEventListener("submit", function(e) {
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
     e.preventDefault();
+    
+    // Show loading state
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = 'Sending...';
+    submitBtn.disabled = true;
+    
     emailjs.sendForm("service_j5qc1bj", "template_69zu88n", this)
-      .then(() => alert("Message sent!"))
-      .catch(err => alert("Error: " + JSON.stringify(err)));
+      .then(() => {
+        alert("Message sent successfully!");
+        this.reset();
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      })
+      .catch(err => {
+        alert("Error: " + JSON.stringify(err));
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      });
   });
 </script>
 
 </body>
 </html>
-
