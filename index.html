@@ -497,91 +497,113 @@
 
     <!-- Contact Section -->
     <section id="contact" class="py-20 gradient-bg">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Get In Touch</h2>
-                <p class="text-xl text-blue-200 max-w-2xl mx-auto">Ready to start your project? Contact us today for a free consultation and quote.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div class="space-y-8">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-xl p-6 border border-white border-opacity-20">
-                            <i data-lucide="phone" class="w-6 h-6 text-blue-300 mb-3"></i>
-                            <h3 class="text-white font-semibold mb-1">Phone</h3>
-                            <p class="text-blue-200 font-medium mb-1">0968 225 0969</p>
-                            <p class="text-blue-300 text-sm">Call for immediate support</p>
-                        </div>
-                        
-                        <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-xl p-6 border border-white border-opacity-20">
-                            <i data-lucide="mail" class="w-6 h-6 text-blue-300 mb-3"></i>
-                            <h3 class="text-white font-semibold mb-1">Email</h3>
-                            <p class="text-blue-200 font-medium mb-1">fsg.hadez@gmail.com</p>
-                            <p class="text-blue-300 text-sm">Email for project inquiries</p>
-                        </div>
-                        
-                        <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-xl p-6 border border-white border-opacity-20">
-                            <i data-lucide="map-pin" class="w-6 h-6 text-blue-300 mb-3"></i>
-                            <h3 class="text-white font-semibold mb-1">Location</h3>
-                            <p class="text-blue-200 font-medium mb-1">Pasay City</p>
-                            <p class="text-blue-300 text-sm">Manila Pilippines</p>
-                        </div>
-                        
-                        <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-xl p-6 border border-white border-opacity-20">
-                            <i data-lucide="clock" class="w-6 h-6 text-blue-300 mb-3"></i>
-                            <h3 class="text-white font-semibold mb-1">Hours</h3>
-                            <p class="text-blue-200 font-medium mb-1">Mon - Fri: 8AM - 6PM</p>
-                            <p class="text-blue-300 text-sm">Emergency support available</p>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-xl p-6 border border-white border-opacity-20">
-                        <h3 class="text-white font-semibold mb-4 text-lg">Service Areas</h3>
-                        <div class="space-y-3 text-blue-200">
-                            <p>• Custom Software Development & Web Applications</p>
-                            <p>• Computer Repair, Maintenance & Technical Support</p>
-                            <p>• Complete Office Setup & Infrastructure</p>
-                            <p>• CCTV Security Systems & Installation</p>
-                            <p>• Network Design & Implementation</p>
-                            <p>• IT Consulting & Project Management</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-xl p-8 border border-white border-opacity-20">
-                    <h3 class="text-2xl font-bold text-white mb-6">Send a Message</h3>
-                    <form id="contact-form" class="space-y-6">
-                        <input type="hidden" name="to_email" value="fsg.hadez@gmail.com">
-                        <input type="hidden" name="to_name" value="TechPro Solutions">
-                        
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <input type="text" name="from_name" placeholder="Your Name" class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400" required>
-                            <input type="email" name="from_email" placeholder="Your Email" class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400" required>
-                        </div>
-                        
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <input type="tel" name="phone_number" placeholder="Phone Number" class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400">
-                            <select name="service" class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-400">
-                                <option value="" class="text-gray-700">Select Service</option>
-                                <option value="software" class="text-gray-700">Software Development</option>
-                                <option value="repair" class="text-gray-700">Computer Repair</option>
-                                <option value="office" class="text-gray-700">Office Setup</option>
-                                <option value="security" class="text-gray-700">Security Systems</option>
-                                <option value="consulting" class="text-gray-700">IT Consulting</option>
-                            </select>
-                        </div>
-                        
-                        <textarea rows="5" name="message" placeholder="Tell me about your project or needs..." class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none" required></textarea>
-                        
-                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center space-x-2 group">
-                            <span>Send Message</span>
-                            <i data-lucide="send" class="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Get In Touch</h2>
+      <p class="text-xl text-blue-200 max-w-2xl mx-auto">
+        Ready to start your project? Contact us today for a free consultation and quote.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <!-- Contact Info -->
+      <div class="space-y-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-xl p-6 border border-white border-opacity-20">
+            <i data-lucide="phone" class="w-6 h-6 text-blue-300 mb-3"></i>
+            <h3 class="text-white font-semibold mb-1">Phone</h3>
+            <p class="text-blue-200 font-medium mb-1">0968 225 0969</p>
+            <p class="text-blue-300 text-sm">Call for immediate support</p>
+          </div>
+
+          <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-xl p-6 border border-white border-opacity-20">
+            <i data-lucide="mail" class="w-6 h-6 text-blue-300 mb-3"></i>
+            <h3 class="text-white font-semibold mb-1">Email</h3>
+            <p class="text-blue-200 font-medium mb-1">fsg.hadez@gmail.com</p>
+            <p class="text-blue-300 text-sm">Email for project inquiries</p>
+          </div>
+
+          <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-xl p-6 border border-white border-opacity-20">
+            <i data-lucide="map-pin" class="w-6 h-6 text-blue-300 mb-3"></i>
+            <h3 class="text-white font-semibold mb-1">Location</h3>
+            <p class="text-blue-200 font-medium mb-1">Pasay City</p>
+            <p class="text-blue-300 text-sm">Manila Philippines</p>
+          </div>
+
+          <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-xl p-6 border border-white border-opacity-20">
+            <i data-lucide="clock" class="w-6 h-6 text-blue-300 mb-3"></i>
+            <h3 class="text-white font-semibold mb-1">Hours</h3>
+            <p class="text-blue-200 font-medium mb-1">Mon - Fri: 8AM - 6PM</p>
+            <p class="text-blue-300 text-sm">Emergency support available</p>
+          </div>
         </div>
-    </section>
+
+        <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-xl p-6 border border-white border-opacity-20">
+          <h3 class="text-white font-semibold mb-4 text-lg">Service Areas</h3>
+          <div class="space-y-3 text-blue-200">
+            <p>• Custom Software Development & Web Applications</p>
+            <p>• Computer Repair, Maintenance & Technical Support</p>
+            <p>• Complete Office Setup & Infrastructure</p>
+            <p>• CCTV Security Systems & Installation</p>
+            <p>• Network Design & Implementation</p>
+            <p>• IT Consulting & Project Management</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-xl p-8 border border-white border-opacity-20">
+        <h3 class="text-2xl font-bold text-white mb-6">Send a Message</h3>
+        <form id="contact-form" class="space-y-6">
+          <input type="hidden" name="to_email" value="fsg.hadez@gmail.com" />
+          <input type="hidden" name="to_name" value="TechPro Solutions" />
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <input type="text" name="from_name" placeholder="Your Name"
+              class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              required />
+            <input type="email" name="from_email" placeholder="Your Email"
+              class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              required />
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <input type="tel" name="phone_number" placeholder="Phone Number"
+              class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+            <select name="service"
+              class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-400">
+              <option value="" class="text-gray-700">Select Service</option>
+              <option value="software" class="text-gray-700">Software Development</option>
+              <option value="repair" class="text-gray-700">Computer Repair</option>
+              <option value="office" class="text-gray-700">Office Setup</option>
+              <option value="security" class="text-gray-700">Security Systems</option>
+              <option value="consulting" class="text-gray-700">IT Consulting</option>
+            </select>
+          </div>
+
+          <textarea rows="5" name="message" placeholder="Tell me about your project or needs..."
+            class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none"
+            required></textarea>
+
+          <!-- Submit Button with Spinner -->
+          <button type="submit"
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center space-x-2 group relative">
+            <span class="button-text">Send Message</span>
+            <svg class="animate-spin h-5 w-5 text-white ml-2 hidden spinner" xmlns="http://www.w3.org/2000/svg"
+              fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor"
+                d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+            </svg>
+          </button>
+
+          <!-- ✅ Message box for success/failure -->
+          <div id="form-message" class="hidden mt-4 text-center text-sm"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white">
@@ -762,38 +784,42 @@
 	
 	<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
-  (function(){
-    emailjs.init("9PUZg50CbJv0VlLZv");
+  (function () {
+    emailjs.init("9PUZg50CbJv0VlLZv"); // 🔑 Your Public Key
   })();
 
-  document.getElementById("contact-form").addEventListener("submit", function(e) {
+  document.getElementById("contact-form").addEventListener("submit", function (e) {
     e.preventDefault();
-    
+
     const form = this;
     const submitBtn = form.querySelector('button[type="submit"]');
-    const originalText = submitBtn.innerHTML;
+    const buttonText = submitBtn.querySelector(".button-text");
+    const spinner = submitBtn.querySelector(".spinner");
     const messageBox = document.getElementById("form-message");
-    
+
     // Reset message box
     messageBox.className = "hidden mt-4 text-center text-sm";
     messageBox.textContent = "";
 
-    // Show loading state
-    submitBtn.innerHTML = 'Sending...';
+    // Show loading spinner
+    buttonText.textContent = "Sending...";
+    spinner.classList.remove("hidden");
     submitBtn.disabled = true;
-    
+
     emailjs.sendForm("service_j5qc1bj", "template_69zu88n", form)
       .then(() => {
         messageBox.textContent = "✅ Message sent successfully!";
         messageBox.className = "mt-4 text-center text-sm text-green-400 font-medium";
         form.reset();
-        submitBtn.innerHTML = originalText;
+        buttonText.textContent = "Send Message";
+        spinner.classList.add("hidden");
         submitBtn.disabled = false;
       })
-      .catch(err => {
+      .catch(() => {
         messageBox.textContent = "❌ Failed to send. Please try again later.";
         messageBox.className = "mt-4 text-center text-sm text-red-400 font-medium";
-        submitBtn.innerHTML = originalText;
+        buttonText.textContent = "Send Message";
+        spinner.classList.add("hidden");
         submitBtn.disabled = false;
       });
   });
